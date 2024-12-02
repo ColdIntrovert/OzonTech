@@ -1,0 +1,49 @@
+﻿<Window x:Class="OzonTech.MyWindows.AddDepartmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OzonTech.MyWindows"
+        mc:Ignorable="d" 
+        Title="AddDepartmentWindow" Height="300" Width="250" Background="{StaticResource AppBackgroundColor}">
+    <Window.Resources>
+
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="20" Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 0 0 5">Название</TextBlock>
+                <Border Height="18" Background="White" BorderThickness="0" CornerRadius="3">
+                    <TextBox Padding="3 0" x:Name="NameTb" Background="Transparent" BorderThickness="0"></TextBox>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel Margin="0 20" Orientation="Vertical">
+                <TextBlock Margin="5 0 0 5">Местоположение</TextBlock>
+                <Border Height="18" Background="White" BorderThickness="0" CornerRadius="3">
+                    <TextBox Padding="3 0" x:Name="PlaceTb" Background="Transparent" BorderThickness="0"></TextBox>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="5 0 0 5">Комната</TextBlock>
+                <Border Height="18" Background="White" BorderThickness="0" CornerRadius="3">
+                    <TextBox Padding="3 0" x:Name="RoomTb" Background="Transparent" BorderThickness="0"></TextBox>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 40 0 0">
+                <Border Background="White" BorderThickness="0" CornerRadius="3">
+                    <Button Foreground="Black" Height="25"  Background="Transparent" Style="{StaticResource MouseEnterStyle}"  Width="60"  x:Name="CloseBtn" Click="CloseBtn_Click">Отмена</Button>
+                </Border>
+                <Border x:Name="AddBorder" Visibility="Collapsed" Margin="10 0 0 0" Background="White" BorderThickness="0" CornerRadius="3">
+                    <Button Foreground="Black" Height="25"   Style="{StaticResource MouseEnterStyle}" Width="90" x:Name="AddBtn" Click="AddBtn_Click">Подтвердить</Button>
+                </Border>
+                <Border x:Name="EditBorder" Visibility="Visible" Margin="10 0 0 0" Background="White" BorderThickness="0" CornerRadius="3">
+                    <Button Foreground="Black" Height="25"  Style="{StaticResource MouseEnterStyle}" Width="70"  x:Name="EditBtn" Click="EditBtn_Click">Обновить</Button>
+                </Border>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>

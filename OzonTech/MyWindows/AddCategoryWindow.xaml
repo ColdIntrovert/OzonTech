@@ -1,0 +1,67 @@
+﻿<Window x:Class="OzonTech.MyWindows.AddCategoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OzonTech.MyWindows"
+        mc:Ignorable="d"
+        Title="AddCategoryWindow" Height="300" Width="300"  Background="#FFE8E7E7">
+    <Window.Resources>
+
+
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="20"/>
+        </Style>
+
+
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Margin" Value="5 0 0 5"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="10 30" Orientation="Horizontal">
+            
+            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
+                
+                <StackPanel Orientation="Vertical">
+                    <TextBlock>Название</TextBlock>
+                    <Border CornerRadius="3" Background="White" Width="120">
+                        <TextBox Padding="3" x:Name="NameTb" BorderThickness="0" Background="Transparent" Width="120" PreviewTextInput="NameTb_PreviewTextInput" ></TextBox>
+
+                    </Border>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical">
+                    <TextBlock>Описание</TextBlock>
+                    <Border CornerRadius="3" Background="White" Width="120">
+                        <TextBox Padding="8" Height="100" TextWrapping="Wrap" x:Name="DescriptionTb" BorderThickness="0" Background="Transparent" Width="120"></TextBox>
+                    </Border>
+                </StackPanel>
+                
+                
+            </StackPanel>
+            <!--1 строка-->
+            <StackPanel Margin="20 0 0 0" Orientation="Vertical">
+                <TextBlock>Выберите фотографию</TextBlock>
+                
+                    <Image  Width="80" Height="80" x:Name="CategoryImg" Cursor="Hand" PreviewMouseLeftButtonDown="CategoryImg_PreviewMouseLeftButtonDown" Source="/Photos/NotPhoto.jpg" ></Image>
+
+
+
+                <Border Margin="0 10 0 0"  Background="#34C924" CornerRadius="3" Height="25">
+                    <Button Style="{StaticResource MouseEnterStyle}" x:Name="AddCategoryBtn" Height="20" BorderThickness="0" Background="Transparent" Click="AddCategoryBtn_Click" >Добавить</Button>
+
+                </Border>
+                <Border Margin="0 10 0 0"  Background="#34C924" CornerRadius="3" Height="25">
+                    <Button Style="{StaticResource MouseEnterStyle}" x:Name="CloseCategoryBtn" Height="20" BorderThickness="0" Background="Transparent" Click="CloseCategoryBtn_Click" >Назад</Button>
+
+                </Border>
+            </StackPanel>
+
+            
+        </StackPanel>
+    </Grid>
+</Window>

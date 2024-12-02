@@ -1,0 +1,49 @@
+﻿<Page x:Class="OzonTech.Pages.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OzonTech.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="350"
+      Title="AuthorizationPage" Background="#FFE8E7E7">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Foreground="Black"   Margin="5"  FontSize="30" HorizontalAlignment="Center" Text="Tech Support">
+
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="20" Color="Black"></DropShadowEffect>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <StackPanel Margin="0 30 0 0"  HorizontalAlignment="Center" Orientation="Vertical">
+                <Border CornerRadius="0 10 0 0"  Height="25" HorizontalAlignment="Left" Width="110" BorderBrush="#FFCECDD1" BorderThickness="1">
+                    <TextBlock VerticalAlignment="Center">Имя пользователя</TextBlock>
+                </Border>
+                <Border CornerRadius="0 5 5 5" Background="White"  Height="25"  BorderBrush="#FFCECDD1" BorderThickness="1">
+                    <TextBox Background="Transparent" Height="25" x:Name="UserNameTb" VerticalAlignment="Center" BorderThickness="0" Width="240" TextChanged="UserNameTb_TextChanged"></TextBox>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="0 30 0 0"  HorizontalAlignment="Center" Orientation="Vertical">
+                <Border CornerRadius="0 10 0 0"  Height="25" HorizontalAlignment="Left" Width="50" BorderBrush="#FFCECDD1" BorderThickness="1">
+                    <TextBlock VerticalAlignment="Center">Пароль</TextBlock>
+                </Border>
+                <Border Background="White" Width="240" CornerRadius="0 5 5 5"  Height="25"  BorderBrush="#FFCECDD1" BorderThickness="1">
+                    <Grid Width="240">
+
+                        <PasswordBox Background="Transparent" Height="25" Visibility="Visible" x:Name="PasswordPb" VerticalAlignment="Center" BorderThickness="0" Width="240" PasswordChanged="PasswordPb_PasswordChanged"></PasswordBox>
+                        <TextBox Background="Transparent" Height="25" Visibility="Collapsed" x:Name="VisPassTb" VerticalAlignment="Center" BorderThickness="0" Width="240" TextChanged="VisiblePassTb_TextChanged"></TextBox>
+
+                        <Image Cursor="Hand" x:Name="CloseEyeBtn" Margin="0 0 5 0" HorizontalAlignment="Right" Visibility="Collapsed" Width="15" Height="15" Source="/Photos/CloseEye.png" MouseLeftButtonDown="CloseEyeBtn_MouseLeftButtonDown"></Image>
+                        <Image Cursor="Hand" x:Name="OpenEyeBtn" Margin="0 0 5 0" HorizontalAlignment="Right" Visibility="Visible" Width="15" Height="15" Source="/Photos/OpenEye.png" MouseLeftButtonDown="OpenEyeBtn_MouseLeftButtonDown" ></Image>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <Button Margin="0 20 0 0 " Background="#34C924" Style="{StaticResource MouseEnterStyle}"  x:Name="AuthBtn" Cursor="Hand" BorderThickness="0"  Width="240" Height="25" Click="AuthBtn_Click">Войти</Button>
+
+
+        </StackPanel>
+    </Grid>
+</Page>

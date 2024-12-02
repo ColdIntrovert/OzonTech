@@ -1,0 +1,195 @@
+﻿<Page x:Class="OzonTech.Pages.LookApplicationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OzonTech.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1800" Background="{StaticResource AppBackgroundColor}"
+      Title="LookApplicationPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Border CornerRadius="3" Width="52" Margin="5 65 0 0" Height="28" BorderThickness="0.5" BorderBrush="Gray">
+                    <Border.RenderTransform>
+                        <RotateTransform Angle="-90" />
+                    </Border.RenderTransform>
+                    <TextBlock FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Text="Поиск" />
+                </Border>
+
+                <StackPanel Orientation="Horizontal" Width="1360">
+                    <Border Width="1360" VerticalAlignment="Center" Margin="0 20 10 40" CornerRadius="5"  Background="White"  Height="35"  BorderBrush="#FFCECDD1" BorderThickness="1">
+                        <Grid VerticalAlignment="Center">
+                            <TextBox x:Name="SearchTb" Style="{StaticResource PlaceholderTextBoxStyle}" FontSize="15" Padding="3" Tag="Название/ Описание"  Background="Transparent" Height="35" BorderThickness="0" TextChanged="SearchTb_TextChanged"></TextBox>
+                            <Image Margin="3" HorizontalAlignment="Right" Source="/Photos/Search.png"></Image>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <Image x:Name="ClearImg" Margin="5 -17 0 0" VerticalAlignment="Center" Source="/Photos/Close.png" Width="30" MouseLeftButtonDown="ClearImg_MouseLeftButtonDown"></Image>
+            </StackPanel>
+     
+            
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Border CornerRadius="3" Width="140" Margin="5 125 -85 -20" Height="28" BorderThickness="0.5" BorderBrush="Gray">
+                    <Border.RenderTransform>
+                        <RotateTransform Angle="-90" />
+                    </Border.RenderTransform>
+                    <TextBlock FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Text="Критерии поиска" />
+                </Border>
+                <Border CornerRadius="3" BorderThickness="1" BorderBrush="Gray">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Width="680" Margin="10" Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border  HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="110" Margin="0 0 0 8">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Категория</TextBlock>
+
+                                    </Border>
+                                    <Image x:Name="CleanCategoryImg" Margin="5 -10 0 0" Width="25" Height="25" Source="/Photos/Close.png" MouseLeftButtonDown="CleanCategoryImg_MouseLeftButtonDown" ></Image>
+                                </StackPanel>
+
+                                <Border Height="35" CornerRadius="3" Background="White" >
+                                    <ComboBox Padding="8" VerticalAlignment="Center" Height="35" x:Name="CategoryTb" BorderThickness="1" Background="Transparent" SelectionChanged="CategoryTb_SelectionChanged"  ></ComboBox>
+    
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Width="680" Margin="10" Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border  HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="80" Margin="0 0 0 8">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Статус</TextBlock>
+
+                                    </Border>
+                                    <Image x:Name="CleanStatusImg" Margin="5 -10 0 0" Width="25" Height="25" Source="/Photos/Close.png" MouseLeftButtonDown="CleanStatusImg_MouseLeftButtonDown" ></Image>
+                                </StackPanel>
+                                <Border Height="35" CornerRadius="3" Background="White" >
+                                    <ComboBox Padding="8" VerticalAlignment="Center" Height="35" x:Name="StatusTb" BorderThickness="1" Background="Transparent" SelectionChanged="StatusTb_SelectionChanged"  >
+                                        <ComboBoxItem Content="Создано" Tag="Создано" />
+                                        <ComboBoxItem Content="Готово" Tag="Готово" />
+                                    </ComboBox>
+
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Width="680" Margin="10" Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border  HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="120" Margin="0 0 0 8">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Пользователи</TextBlock>
+
+                                    </Border>
+                                    <Image x:Name="CleanUsersImg" Margin="5 -10 0 0" Width="25" Height="25" Source="/Photos/Close.png" MouseLeftButtonDown="CleanUsersImg_MouseLeftButtonDown" ></Image>
+                                </StackPanel>
+                                <Border Height="35" CornerRadius="3" Background="White" >
+                                    <ComboBox Padding="8" VerticalAlignment="Center" Height="35" x:Name="UsersTb" BorderThickness="1" Background="Transparent" SelectionChanged="UsersTb_SelectionChanged"  >
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+
+                                                        <TextBlock Text="{Binding Surname}"  />
+                                                        <TextBlock Text="{Binding Name}" Margin=" 5 0 0 0"/>
+
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Width="680" Margin="10" Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border  HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="80" Margin="0 0 0 8">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Отдел</TextBlock>
+
+                                    </Border>
+                                    <Image x:Name="CleanDepartmentImg" Margin="5 -10 0 0" Width="25" Height="25" Source="/Photos/Close.png" MouseLeftButtonDown="CleanDepartmentImg_MouseLeftButtonDown" ></Image>
+                                </StackPanel>
+                                <Border Height="35" CornerRadius="3" Background="White" >
+                                    <ComboBox Padding="8" VerticalAlignment="Center" Height="35" x:Name="DepartamentTb" BorderThickness="1" Background="Transparent" SelectionChanged="DepartamentTb_SelectionChanged"  >
+
+                                    </ComboBox>
+
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Width="1400">
+                <StackPanel  HorizontalAlignment="Left" Margin="0 20 0 10" Height="25" Orientation="Horizontal">
+                    <TextBlock Width="200" Margin="25 0 30 0">Заявка</TextBlock>
+                    <TextBlock Width="185">Категория</TextBlock>
+                    <TextBlock Width="190" Margin="65 0 0 0">Отдел</TextBlock>
+                    <TextBlock Width="180" Margin="10 0 45 0">Сотрудник</TextBlock>
+                    <TextBlock Width="155" Margin="48 0 30 0">Статус</TextBlock>
+                    <TextBlock Margin="20 0 20 0">Действие</TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Width="1400" >
+                <ListView  VerticalAlignment="Top" Height="195" Background="Transparent"  BorderThickness="0" HorizontalAlignment="Center"  x:Name="ApplicationsLv" ScrollViewer.VerticalScrollBarVisibility="Hidden"   d:ItemsSource="{d:SampleData}" SelectionChanged="ApplicationsLv_SelectionChanged"  >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="1"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="1380" VerticalAlignment="Top" Height="60" Background="White" CornerRadius="5" BorderThickness="3" BorderBrush="#FFE8E7E7">
+                                <StackPanel Background="Transparent"   Orientation="Horizontal" Margin="0 10 0 5">
+                                    <StackPanel Margin="10 0 0 0" Width="220" Orientation="Vertical">
+                                        <TextBlock Text="{Binding Name}"></TextBlock>
+                                        <TextBlock Text="{Binding Name_Computer}" Opacity="0.8"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Width="260" Orientation="Horizontal">
+                                        <Image Width="30" Source="{Binding CategoryRequest.ImageData}"></Image>
+                                        <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="{Binding CategoryRequest.Title}"></TextBlock>
+                                    </StackPanel>
+                                    <TextBlock VerticalAlignment="Center" Width="200" Text="{Binding Departments.Title}"></TextBlock>
+                                    <StackPanel Width="280" Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Users.Surname}"></TextBlock>
+                                            <TextBlock Margin="5 0 0 0" Text="{Binding Users.Name}"></TextBlock>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding Users.UserName}"></TextBlock>
+                                    </StackPanel>
+
+
+                                    <StackPanel Width="200" Orientation="Vertical">
+                                        <TextBlock Text="{Binding Status}"></TextBlock>
+                                        <TextBlock HorizontalAlignment="Left" Width="58" Text="{Binding CreateOn}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border>
+                                            <Button x:Name="DelBtn" Width="35" Height="35" Style="{StaticResource MouseEnterStyle}" Click="DelBtn_Click"  >
+                                                <Image Source="/Photos/Close.png" />
+                                            </Button>
+
+                                        </Border>
+                                        <Border Margin="10 0">
+                                            <Button x:Name="EditBtn" Width="35" Height="35" Style="{StaticResource MouseEnterStyle}" Click="EditBtn_Click" >
+                                                <Image Source="/Photos/Edit.png" />
+                                            </Button>
+                                        </Border>
+                                        <Border>
+                                            <Button x:Name="AccertBtn"  Width="35" Height="35" Style="{StaticResource MouseEnterStyle}" Click="AccertBtn_Click" >
+                                                <Image Source="/Photos/Accept.png" />
+                                            </Button>
+
+                                        </Border>
+
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <Border Height="20" CornerRadius="3" Background="White" Width="120" HorizontalAlignment="Left" Margin="40 20 0 0">
+                <TextBlock TextAlignment="Center" x:Name="CountTb" Height="20" Padding="2" Width="120"></TextBlock>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

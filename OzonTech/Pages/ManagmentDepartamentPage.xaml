@@ -1,0 +1,64 @@
+﻿<Page x:Class="OzonTech.Pages.ManagmentDepartamentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OzonTech.Pages"
+      mc:Ignorable="d" 
+d:DesignHeight="450" d:DesignWidth="700" Background="#FFE8E7E7"     
+      Title="ManagmentDepartamentPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            
+            <Border VerticalAlignment="Center" Margin="10 20 10 40" CornerRadius="5"  Background="White"  Height="35"  BorderBrush="#FFCECDD1" BorderThickness="1">
+                <Grid VerticalAlignment="Center">
+                    <TextBox x:Name="SearchTb" Style="{StaticResource PlaceholderTextBoxStyle}" FontSize="15" Padding="3" Tag="Название/ Метоположение/ Кабинет"  Background="Transparent" Height="35" BorderThickness="0" TextChanged="SearchTb_TextChanged"></TextBox>
+                    <Image Margin="3" HorizontalAlignment="Right" Source="/Photos/Search.png"></Image>
+                </Grid>
+            </Border>
+
+            <StackPanel >
+                <StackPanel Margin="0 0 0 10" HorizontalAlignment="Center" Width="700" Height="25" Orientation="Horizontal">
+                    <Image Margin="20 0 8 0 " Width="15" Height="15" Source="/Photos/Menu.png" ></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10 0 0 0" Width="185">Название</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Width="190">Местоположение</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 0 0">Кабинет</TextBlock>
+
+                </StackPanel>
+                <StackPanel>
+                    <ListView VerticalAlignment="Top" Height="165" Background="Transparent"  BorderThickness="0" Margin="10 0 10 40" Width="700" HorizontalAlignment="Center"  x:Name="DepartamentLv" ScrollViewer.VerticalScrollBarVisibility="Hidden"   d:ItemsSource="{d:SampleData}" PreviewMouseDown="DepartamentLv_PreviewMouseDown"  >
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="1"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="680" VerticalAlignment="Top" Height="50" Background="White" CornerRadius="5" BorderThickness="0" BorderBrush="#FFE8E7E7">
+                                    <StackPanel Background="Transparent"   Orientation="Horizontal" Margin="0 10 0 5">
+                                        <CheckBox Margin="10 0 0 0" IsChecked="{Binding IsSelected, Mode=TwoWay}" x:Name="SelectChB" VerticalAlignment="Center" BorderThickness="0" ></CheckBox>
+                                        <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" Width="190"  Text="{Binding Title}"></TextBlock>
+                                        <TextBlock VerticalAlignment="Center" Width="190"  Text="{Binding Place}"></TextBlock>
+                                        <TextBlock VerticalAlignment="Center" Width="190" Margin="0 0 35 0"  Text="{Binding Room}"></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+
+            <Border Height="20" CornerRadius="3" Background="White" Width="120" HorizontalAlignment="Left" Margin="40 0 0 0">
+                <TextBlock TextAlignment="Center" x:Name="CountTb" Height="20" Padding="2" Width="120"></TextBlock>
+            </Border>
+
+            <StackPanel Margin="0 0 40 0" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="DeleteBtn" Width="70" Height="25" Opacity="0.7"  Background="Red" Style="{StaticResource MouseEnterStyle}" Click="DeleteBtn_Click">Удалить</Button>
+                <Button x:Name="EditeBtn" Width="100" Opacity="0.7" Margin="10 0" Background="Orange" Style="{StaticResource MouseEnterStyle}" Click="EditeBtn_Click">Редактировать</Button>
+                <Button x:Name="AddBtn" Width="70" Opacity="0.7" Background="#34C924" Style="{StaticResource MouseEnterStyle}" Click="SddBtn_Click">Добавить</Button>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

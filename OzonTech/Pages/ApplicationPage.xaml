@@ -1,0 +1,133 @@
+﻿<Page x:Class="OzonTech.Pages.ApplicationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OzonTech.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800" Background="{StaticResource AppBackgroundColor }"
+      Title="ApplicationPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+            <StackPanel>
+                <StackPanel Margin="10" Orientation="Vertical">
+                    <Border HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="140" Margin="0 0 0 8">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold">Тема заявки</TextBlock>
+                    </Border>
+                    <Border Height="35" CornerRadius="3" Background="White" >
+                        <TextBox Padding="5"  Height="25" x:Name="NameTb" BorderThickness="0" Background="Transparent"  PreviewTextInput="SurnameTb_PreviewTextInput"></TextBox>
+
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border BorderThickness="0 0 1 0" BorderBrush="Gray" Width="400">
+                    <StackPanel Orientation="Vertical" Background="Transparent">
+                        <StackPanel Margin="10" Orientation="Vertical">
+                            <Border HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="120" Margin="0 0 0 8">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Компьютер</TextBlock>
+                            </Border>
+                            <Border Height="35" CornerRadius="3" Background="White" >
+                                <TextBox Padding="8" VerticalAlignment="Center" Height="35" x:Name="ComputerTb" BorderThickness="0" Background="Transparent"  PreviewTextInput="SurnameTb_PreviewTextInput"></TextBox>
+
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Margin="10" Orientation="Vertical">
+                            <Border HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="150" Margin="0 0 0 8">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Местоположение</TextBlock>
+                            </Border>
+                            <Border Height="45" CornerRadius="3" >
+                                <ComboBox Width="370" Padding="20 2"  VerticalAlignment="Center" Height="45" FontSize="15" x:Name="PlaceCb" BorderThickness="1" Background="Transparent"  PreviewTextInput="SurnameTb_PreviewTextInput">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock  Text="{Binding Title}" />
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Place}" Margin="0 0 5 0" />
+                                                    <TextBlock>|</TextBlock>
+                                                    <TextBlock Text="{Binding Room}" Margin=" 5 0 0 0"/>
+                                                </StackPanel>
+
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                            </Border>
+                        </StackPanel>
+
+
+                        <StackPanel Margin="10" Orientation="Vertical">
+                            <Border HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="100" Margin="0 0 0 8">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Описание</TextBlock>
+                            </Border>
+                            <Border  CornerRadius="3" Background="White" >
+                                <TextBox Padding="5" VerticalAlignment="Center" Height="100" x:Name="DescriptionTb" BorderThickness="0" Background="Transparent"  PreviewTextInput="SurnameTb_PreviewTextInput"></TextBox>
+
+                            </Border>
+                        </StackPanel>
+
+
+
+
+                    </StackPanel>
+                </Border> <!--  left  -->
+
+                <StackPanel Width="400" Orientation="Vertical">
+                    <StackPanel Margin="10" Orientation="Vertical">
+                        <Border HorizontalAlignment="Left" CornerRadius="3" Height="35" Background="White" Width="135" Margin="0 0 0 8">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold">Категория заявки</TextBlock>
+                        </Border>
+                        <Border Height="45" CornerRadius="3" Background="White" >
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                <Image Margin="10 0 0 0" x:Name="CategoryImage" Width="25" Height="25" />
+                                <TextBlock x:Name="CategoryTb" FontSize="24" Margin="10 0 0 0 "/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <ListView Height="250" Background="White"  BorderThickness="0"  Width="350" HorizontalAlignment="Center"  x:Name="CategoriesLv" ScrollViewer.VerticalScrollBarVisibility="Hidden"   d:ItemsSource="{d:SampleData}" SelectionChanged="CategoriesLv_SelectionChanged"  >
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="1"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Cursor="Hand" CornerRadius="5" Width="310" Margin="10 0" VerticalAlignment="Top" Height="50" Background="{StaticResource AppBackgroundColor}" BorderBrush="#FFD6D4D4">
+                                        <StackPanel Margin="0 5" Background="Transparent"   Orientation="Horizontal" >
+                                            <Image Margin="5 0 0 0" Width="30" Height="40" Source="{Binding ImageData}"></Image>
+                                            <TextBlock Margin="5 0 0 0" VerticalAlignment="Center" Text="{Binding Title}"></TextBlock>
+                                        </StackPanel>
+                                    </Border>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+                
+            </StackPanel>
+            
+            <Border Visibility="Visible" x:Name="Border1" Margin="10 30 10 0"  Background="#34C924" CornerRadius="3" Height="25">
+                <Button Style="{StaticResource MouseEnterStyle}" x:Name="AddApplicationBtn" Height="25" BorderThickness="0" Background="Transparent" Click="AddApplicationBtn_Click"  >Создать</Button>
+
+            </Border>
+            <Border x:Name="Border2" Visibility="Collapsed" Margin="10 30 10 0"  Background="#34C924" CornerRadius="3" Height="25">
+                <Button Style="{StaticResource MouseEnterStyle}" x:Name="EditApplicationBtn" Height="25" BorderThickness="0" Background="Transparent" Click="EditApplicationBtn_Click"  >Изменить</Button>
+
+            </Border>
+            <Border Visibility="Visible" x:Name="Border3" Margin="10 10 10 0"  Background="Orange" CornerRadius="3" Height="25">
+                <Button Style="{StaticResource MouseEnterStyle}" x:Name="BackBtn" Height="25" BorderThickness="0" Background="Transparent" Click="BackBtn_Click"  >Назад</Button>
+
+            </Border>
+            <Border Visibility="Collapsed" x:Name="Border4" Margin="10 10 10 0"  Background="Orange" CornerRadius="3" Height="25">
+                <Button Style="{StaticResource MouseEnterStyle}" x:Name="Back2Btn" Height="25" BorderThickness="0" Background="Transparent" Click="Back2Btn_Click"  >Назад</Button>
+
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>
